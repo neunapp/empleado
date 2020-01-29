@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include "includes/header.html" %}
+
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell">Lista Empleados</h1>
+        <div class="cell">
+            <table>
+                <thead>
+                    <tr>
+                    <th width="200">ID</th>
+                    <th>NOMBRES</th>
+                    <th width="150">APELLIDOS</th>
+                    <th width="150">DEPARTAMENTO</th>
+                    <th width="150">ACCION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for e in empleados %}
+                    <tr>
+                        <td>{{ e.id }}</td>
+                        <td>{{ e.first_name }}</td>
+                        <td>C{{ e.last_name }}</td>
+                        <td>{{ e.departamento }}</td>
+                        <td>
+                            <a class="button success" href="{% url 'persona_app:modificar_empleado' e.id %}">Editar</a>
+                        </td>
+                        <td>
+                            <a class="button alert" href="{% url 'persona_app:eliminar_empleado' e.id %}">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="cell">
+            {% if is_paginated %}
+            <nav aria-label="Pagination">
+                <ul class="pagination">
+                    {% if page_obj.has_previous %}
+                    <li class="pagination-previous">
+                        <a href="?page={{page_obj.previous_page_number}}">Atras</a>
+                    </li>
+                    {% endif %}
+                    
+                    {% for pagina in paginator.page_range %}
+
+                    
+                    {% ifequal pagina page_obj.number %}
+                    <li class="current"><span class="show-for-sr">You're on page</span> {{ pagina }}</li>
+                    {% else %}
+                    <li class=""><a href="?page={{pagina}}">{{ pagina }}</a></li>
+                    {% endifequal %}
+                    {% endfor %}
+                    
+                    {% if page_obj.has_next %}
+                    <li class="pagination-next">
+                        <a href="?page={{page_obj.next_page_number}}">Siguiente</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

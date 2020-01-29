@@ -1,0 +1,25 @@
+{% load staticfiles %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Resumen Foundation</h1>
+    <div class="grid-x" style="border: 1px solid green;">
+        <h2 class="cell small-12 large-5" style="border: 1px solid red;">elemento 1</h2>
+        <h2 class="cell large-4">elemento 2</h2>
+        <h2 class="cell large-3" style=" border: 1px solid blue;">elemento 3</h2>
+        <div class="cell large-4 grid-x" style="border: 1px solid yellow;">
+            <h4 class="cell large-2">otro elmento 1</h4>
+            <h4 class="cell large-2">otro elmento 2</h4>
+            <h4>otro elmento 3</h4>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,6 +1,53 @@
-<h1>Modificar Datos de Empelado</h1>
+{% extends 'base.html' %}
 
-<form method="POST">{% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Actualizar</button>
-</form>
+{% block title %}
+  Editar Empelado
+{% endblock title %}
+
+{% block content %}
+
+{% include "includes/header.html" %}
+
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell">
+            Modificar Empleado
+        </h1>
+        <div class="cell">
+            <form class="grid-x grid-margin-x" method="POST">{% csrf_token %}
+                <div class="cell large-6">
+                    <label>Nombres:
+                        {{ form.first_name }}
+                    </label>
+                </div>
+                <div class="cell large-6">
+                    <label>Apellidos:
+                        {{ form.last_name }}
+                    </label>
+                </div>
+                <div class="cell large-6">
+                    <label>Trabajo:
+                        {{ form.job }}
+                    </label>
+                </div>
+                <div class="cell large-6">
+                    <label>Area:
+                        {{ form.departamento }}
+                    </label>
+                </div>
+                <div class="cell large-6">
+                    <label>Habilidades extra:
+                        {{ form.habilidades }}
+                    </label>
+                </div>
+                <div class="cell">
+                    <button type="submit" class="success button">Guardar</button>
+                </div>
+            </form> 
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+

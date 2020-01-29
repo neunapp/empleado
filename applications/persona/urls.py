@@ -6,12 +6,38 @@ from . import views
 app_name = "persona_app"
 
 urlpatterns = [
-    path('listar-todo-empleados/', views.ListAllEmpleados.as_view()),
-    path('lista-by-area/<shorname>/', views.ListByAreaEmpleado.as_view()),
+    path(
+        '',
+        views.InicioView.as_view(),
+        name='inicio'
+    ),
+    path(
+        'listar-todo-empleados/',
+        views.ListAllEmpleados.as_view(),
+        name='empleados_all'
+    ),
+    path(
+        'lista-by-area/<shorname>/',
+        views.ListByAreaEmpleado.as_view(),
+        name='emplados_area'
+    ),
+    path(
+        'lista-empleados-admin/',
+        views.ListaEmpleadosAdmin.as_view(),
+        name='emplados_admin'
+    ),
     path('buscar-empleado/', views.ListEmpleadosByKword.as_view()),
     path('lista-habilidades-empleado/', views.ListHabilidadesEmpelado.as_view()),
-    path('ver-empleado/<pk>/', views.EmpleadoDetailView.as_view()),
-    path('add-empleado/', views.EmpleadoCreateView.as_view()),
+    path(
+        'ver-empleado/<pk>/', 
+        views.EmpleadoDetailView.as_view(),
+        name='empleado_detail'
+    ),
+    path(
+        'add-empleado/',
+        views.EmpleadoCreateView.as_view(),
+        name='empleado_add'
+    ),
     path(
         'success/',
         views.SuccessView.as_view(),

@@ -1,1 +1,21 @@
-<h1>Hola mundo desde los nuevos tempales</h1>
+{% load staticfiles %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
+</head>
+<body>
+    <h1 class="ejemplo1">Hola mundo desde los nuevos tempales</h1>
+    <h2 class="ejemplo2">cargando estilos</h2>
+    <a href="about.html" class="button">Learn More</a>
+<a href="#features" class="button">View All Features</a>
+
+<!-- Buttons (actions) -->
+<button type="button" class="success button">Save</button>
+<button type="button" class="alert button">Delete</button>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends 'home/conmon/base_home.html' %}
+{% load staticfiles %}
+{% load static %}
+
+{% block titulo %}
+    pantalla 1
+{% endblock titulo %}
+
+{% block cuerpo %}
+    <h1>aqui va el contenido 1</h1>
+    <div class="grid-x">
+        <div class="cell callout success">
+            <h5>This is a callout.</h5>
+            <p>It has an easy to override visual style, and is appropriately subdued.</p>
+            <a href="#">It's dangerous to go alone, take this.</a>
+        </div>
+    </div>
+{% endblock cuerpo %}
